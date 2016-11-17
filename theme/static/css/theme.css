@@ -43,3 +43,10 @@ a {
     border: none;
   }
 
+.note {
+  color: #8F5902;
+}
+
+.note .admonition-title {
+  font-size: 18px;
+}

@@ -19,6 +19,40 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
+PLUGIN_PATHS = ['../pelican-plugins']
+PLUGINS = ['pelican_javascript', 'i18n_subsites']
+
+
+# mapping: language_code -> settings_overrides_dict
+I18N_SUBSITES = {
+    'es': {
+        'SITENAME': u'toronjil morado',
+        'THEME': 'theme',
+        'SITEURL': '/es'
+        }
+    }
+
+languages_lookup = {
+             'en': 'English',
+             'es': 'Español',
+             }
+
+def lookup_lang_name(lang_code):
+    return languages_lookup[lang_code]
+
+
+def my_ordered_items(ordered_dict):
+    items = list(ordered_dict.items())
+    # swap first and last using tuple unpacking
+    items[0], items[-1] = items[-1], items[0]
+    return items
+
+JINJA_FILTERS = {
+             'lookup_lang_name': lookup_lang_name,
+             'my_ordered_items': my_ordered_items,
+             }    
+
+
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
          ('Python.org', 'http://python.org/'),

@@ -1,13 +1,15 @@
 Mapping New Haven Neighborhoods
 ###############################
 
-:date: 2016-10-31 7:32
+:date: 2016-11-14 7:32
 :tags: random
 :category: about
-:slug: first-post
+:slug: new-haven-neighborhoods
+:lang: en
 :authors: Geoffrey Valdes
 :summary: Generating GeoJson for New Haven neighborhood boundaries
-:status: draft
+:javascripts: https://unpkg.com/leaflet@1.0.1/dist/leaflet.js, nh_map.js
+:stylesheets: https://unpkg.com/leaflet@1.0.1/dist/leaflet.css, map.css
 
 I moved to New Haven a few months ago.  As part of getting to know the city, I want to know the different neighborhoods and represent them on a web-based map.  To do that I'd like to have the neighborhood boundaries represented as GeoJson.  
 
@@ -31,16 +33,20 @@ Opening up the attribute table for this layer, I could see that the NAME10 colum
 
 Make a csv file with two columns
 
-Neighborhood | NAME10
-Amity         | 1412
-West Rock     | 1413
-Wooster Square| 1421
-Wooster Square | 1422
+============== ========
+Nbrs           NAME10
+-------------- --------
+Amity          1412
+West Rock      1413
+Wooster Square 1421
+Wooster Square 1422
+ ...           ...
+============== ========
 
+.. note::  The rest of the steps to come soon
+   But see the map below.
 
-Welcome to my blog.
+.. raw:: html 
 
-.. code-block:: python
+  <div id="mapid"></div>
 
-  def hello_geoff():
-      print 'hi geoff'

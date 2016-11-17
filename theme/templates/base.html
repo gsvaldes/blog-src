@@ -13,6 +13,14 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link href="{{ SITEURL }}/theme/css/theme.css" rel="stylesheet">
         <link href="{{ SITEURL }}/theme/css/tango.css" rel="stylesheet">
+        {% if article %}
+          {% if article.stylesheets %}
+            {% for stylesheet in article.stylesheets %}
+              {{ stylesheet }}
+            {% endfor %}
+          {% endif %}
+        {% endif %}
+        {% endblock head %}
         {% if FEED_ALL_ATOM %}
         <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
         {% endif %}
@@ -37,7 +45,7 @@
         {% if TAG_FEED_RSS and tag %}
         <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
         {% endif %}
-        {% endblock head %}
+
 </head>
 
 <body id="index" class="home">
@@ -49,6 +57,16 @@
         <div class="top-divider">
         </div>
         <nav id="menu" class="navbar navbar-default"><ul class="nav navbar-nav text-uppercase">
+
+        {% if lang_siteurls %}
+        {% for lang, siteurl in lang_siteurls.items() %}
+        <li{% if lang == DEFAULT_LANG %} class="active"{% endif %}><a href="{{ siteurl }}/">{{ lang | lookup_lang_name }}</a></li>
+        {% endfor %}
+        <!-- separator -->
+        <li style="background-color: white; padding: 5px;">&nbsp</li>
+        {% endif %}
+
+    
         {% for title, link in MENUITEMS %}
             <li><a href="{{ link }}">{{ title }}</a></li>
         {% endfor %}
@@ -76,5 +94,13 @@
         <div class="bottom-divider">
         </div>
   </div>        <!--container -->
+{% if article %}
+    {% if article.javascripts %}
+        {% for javascript in article.javascripts %}
+{{ javascript }}
+        {% endfor %}
+    {% endif %}
+{% endif %}
 </body>
+
 </html>
