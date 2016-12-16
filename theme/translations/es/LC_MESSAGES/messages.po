@@ -1,0 +1,7 @@
+# Spanish translations for toronjil morado.
+
+#: templates/base.html:103
+msgid "Powered by"
+msgstr "Hecho con"
+
+

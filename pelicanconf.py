@@ -22,7 +22,7 @@ AUTHOR_FEED_RSS = None
 PLUGIN_PATHS = ['../pelican-plugins']
 PLUGINS = ['pelican_javascript', 'i18n_subsites']
 
-
+RELATIVE_URLS = True  # overwritten to false in publishconf
 # mapping: language_code -> settings_overrides_dict
 I18N_SUBSITES = {
     'es': {
@@ -50,8 +50,9 @@ def my_ordered_items(ordered_dict):
 JINJA_FILTERS = {
              'lookup_lang_name': lookup_lang_name,
              'my_ordered_items': my_ordered_items,
-             }    
+             } 
 
+JINJA_EXTENSIONS = ['jinja2.ext.i18n']   
 
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
