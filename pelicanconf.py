@@ -23,6 +23,26 @@ PLUGIN_PATHS = ['../pelican-plugins']
 PLUGINS = ['pelican_javascript', 'i18n_subsites']
 
 RELATIVE_URLS = True  # overwritten to false in publishconf
+
+# see https://github.com/nicoddemus/nicoddemus.github.io/blob/master/_src/pelicanconf.py for example
+ARTICLE_URL = 'articles/{slug}'
+ARTICLE_SAVE_AS = 'articles/{slug}/index.html'
+
+PAGE_URL = 'pages/{slug}'
+PAGE_SAVE_AS = 'pages/{slug}/index.html'
+
+CATEGORY_URL = 'category/{slug}'
+CATEGORY_SAVE_AS = 'category/{slug}/index.html'
+
+TAG_URL = 'tag/{slug}'
+TAG_SAVE_AS = 'tag/{slug}/index.html'
+
+AUTHOR_URL = 'author/{slug}'
+AUTHOR_SAVE_AS = 'author/{slug}/index.html'
+
+DELETE_OUTPUT_DIRECTORY = True
+
+
 # mapping: language_code -> settings_overrides_dict
 I18N_SUBSITES = {
     'es': {
