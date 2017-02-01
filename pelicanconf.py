@@ -22,7 +22,7 @@ AUTHOR_FEED_RSS = None
 PLUGIN_PATHS = ['../pelican-plugins']
 PLUGINS = ['pelican_javascript', 'i18n_subsites']
 
-RELATIVE_URLS = True  # overwritten to false in publishconf
+RELATIVE_URLS = False  # overwritten to false in publishconf
 
 # see https://github.com/nicoddemus/nicoddemus.github.io/blob/master/_src/pelicanconf.py for example
 ARTICLE_URL = 'articles/{slug}'
@@ -40,7 +40,7 @@ TAG_SAVE_AS = 'tag/{slug}/index.html'
 AUTHOR_URL = 'author/{slug}'
 AUTHOR_SAVE_AS = 'author/{slug}/index.html'
 
-DELETE_OUTPUT_DIRECTORY = True
+DELETE_OUTPUT_DIRECTORY = False
 
 
 # mapping: language_code -> settings_overrides_dict
