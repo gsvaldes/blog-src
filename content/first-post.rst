@@ -24,7 +24,7 @@ Broadly, the steps are
 
 * Convert the geospatial data to GeoJSON.
 
-* Display the GeoJSON on a map using the Leaflet JavaScript Library.
+* Draw the neigborhood boundaries on a web map using the GeoJSON and the Leaflet JavaScript Library.
 
 The City of Austin, TX provides most of it's GIS shp files free online.  The City of New Haven does not appear to do the same.  It does, however have a city plan that shows the census tracts that correspond to each neighborhood: 
 
