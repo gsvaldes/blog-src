@@ -14,7 +14,7 @@ Mapping New Haven Neighborhoods
 
 I moved to New Haven a few months ago.  As part of getting to know the city, I want to know the different neighborhoods and show them on a web-based map using Leaflet.  To do that I need to have the description of the neighborhood boundaries in the GeoJson format.  
 
-For New Haven, this data is probably already available from `Data Haven <http://www.ctdatahaven.org/>`_ in a cleaned format, but I want to show the steps to do this for other locations.
+For New Haven, this data is probably already available from `Data Haven <http://www.ctdatahaven.org/>`_ in a cleaned format, but I want to show the steps to do this for other locations.attributes
 
 Broadly, the steps are
 
@@ -37,7 +37,7 @@ With the above information, I can now download the shp files of the Census tract
 The University of Connnecticut provides GIS data for the state
 http://magic.lib.uconn.edu/connecticut_data.html
 
-Spefically, from the Census - 2010 Boundary Files section you can download the Shapefiles for Connecticut Tracts and open this in qGIS.
+Spefically, from the 'Census - 2010 Boundary Files' section you can download the Shapefiles for Connecticut Tracts and open this in qGIS.
 
 In the qGIS layers panel, it displays as
 ``tractct_37800__0000_2010_s100_census_shp_wgs85wgs``
