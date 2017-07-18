@@ -42,11 +42,11 @@ And in your vue-canvas.js file
 
 Of course, this code doesn't do anything yet.  Let's make a bouncing ball.
 
-First, add a canvas element to our html file inside of the div controlled by VueJS
+First, add a canvas element to the html file inside of the div controlled by VueJS.
 
 .. code-block:: html
 
-    <div id='app'>
+    <div id="app">
         <canvas id="canvas"></canvas>
     </div>
 
@@ -68,6 +68,60 @@ And update vue-canvas.js
             this.height = canvas.height;
         }
     });
+
+
+According to the `VueJS documentation <https://vuejs.org/v2/api/#mounted>`_, the mounted method is called after the ``el``, in our case the div with ``id="app"``, has been replaced by the Vue instance ``vm.$el``.  We can't set ``this.ctx`` equal to ``canvas.getContext('2d')`` until after mount, because until then the canvas element does not yet exist on the page, as the section of our html file within the app div serves as a template for what VueJS will eventually render during the mount.  In the mounted method, we are assigning the width and height of the canvas element to the width and height that we created in the data attribute so that we can access them later.
+
+Now that we can control the canvas context, ctx, from vue, let's add a method to draw a ball.
+
+Add a methods object to our VueJS instance and a drawBall method within it, and also add x and y attributes for the ball within our data object.
+
+.. code-block:: javascript
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            ctx: null,
+            width: 0,
+            height: 0,
+            x: 25,
+            y: 25,
+        },
+        methods: {
+            drawBall: function(){
+                var radius = 15;
+                this.ctx.beginPath();
+                this.ctx.arc(this.x, this.y, radius, 0, 2 * Math.PI, false);
+                this.ctx.fillStyle = 'red';
+                this.ctx.fill();
+                this.ctx.lineWidth = 5;
+                this.ctx.strokeStyle = '#003300';
+                this.ctx.stroke();
+            },
+        },
+        mounted: function(){
+          var canvas = document.getElementById('canvas');
+          this.ctx = canvas.getContext('2d');
+          this.width = canvas.width;   
+          this.height = canvas.height;
+        }
+    }); 
+
+
+Within the html, we can also add a button to call the drawBall method
+
+.. code-block:: html
+
+    <div id="app">
+        <canvas id="canvas"></canvas>
+        <div>
+            <button @click="drawBall">Draw Ball</button>
+        </div>
+    </div>
+
+Clicking on the Draw Ball button will draw a ball centered 25 px down and 25 px to the right of the upper left corner of the canvas element.
+
+
 
 .. raw:: html 
 
