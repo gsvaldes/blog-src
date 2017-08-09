@@ -12,7 +12,7 @@ Using VueJS with Canvas
 :javascripts: https://npmcdn.com/vue/dist/vue.js, vue-canvas.js
 
 
-Recently, I've been enjoying  `The Nature of Code <http://natureofcode.com/book/>`_ by Daniel Schiffman.  The book explains how to code animations that mirror natural processes.  The examples use a Java library called `Processing <https://processing.org/>`_.  There is a port of Processing to JavaScript, `Processing.js <http://processingjs.org/>`_, however, I wanted to see if I could recreate some of the examples from The Nature of Code from scratch, using `VueJS <https://vuejs.org/>`_ and the HTML canvas element.
+Recently, I've been enjoying  `The Nature of Code <http://natureofcode.com/book/>`_ by Daniel Schiffman.  The book explains how to code animations that mirror natural processes.  The examples use a Java library called `Processing <https://processing.org/>`_.  There is a port of Processing to JavaScript, `Processing.js <http://processingjs.org/>`_, however, I wanted to see if I could recreate some of the examples from The Nature of Code from scratch, using `VueJS <https://vuejs.org/>`_ and the HTML ``<canvas>`` element.
 
 One of the biggest features of Vue that I like is that, while it allows for complex code organization and build processes, to get started, you can just drop in a link to the Vue CDN in the head of your ``html`` file, and connect your Vue javascript instance to an html element via the ``el`` attribute.
 
