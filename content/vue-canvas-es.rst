@@ -69,9 +69,56 @@ Y actualizar vue-canvas.js
         }
     });
 
-Según la `documentación de VueJS <https://vuejs.org/v2/api/#mounted>`_, se llama al método ``mounted`` después de que ``el``, que es en nuestro caso el ``div`` with ``id="app"``, ha sido reemplazado por ``vm.$el``  de la instancia de Vue.
+Según la `documentación de VueJS <https://vuejs.org/v2/api/#mounted>`_, se llama al método ``mounted`` después de que ``el``, que es en nuestro caso el ``div`` with ``id="app"``, ha sido reemplazado por ``vm.$el``  de la instancia de Vue.  No podemos 
+asignar ``this.ctx`` igual a ``canvas.getContext('2d')`` hasta después del montaje, porque hasta entonces el elemento ``canvas`` todavía no existe en la página, como la sección de nuestro archivo html dentro de la div ``app`` sirve como una plantilla de lo que VueJS generará durante el montaje.  En el método ``mounted``, asignamos la anchura y la altura del elemento ``canvas`` a la anchura y altura que creamos en el atributo ``data`` para que podamos acceder a ellos más tarde.  
 
+Ahora que podemos controlar el contexto  de canvas, ``ctx``, de vue, vamos a agregar un método para dibujar una bola.
 
+Agregue un objeto de ``methods`` a nuestra instancia VueJS y un método ``dibujarPelota`` dentro de ella.
+
+.. code-block:: javascript
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            ctx: null,
+            width: 0,
+            height: 0,
+            x: 25,
+            y: 25,
+        },
+        methods: {
+            dibujarPelota: function(){
+                var radius = 15;
+                this.ctx.beginPath();
+                this.ctx.arc(this.x, this.y, radius, 0, 2 * Math.PI, false);
+                this.ctx.fillStyle = 'red';
+                this.ctx.fill();
+                this.ctx.lineWidth = 5;
+                this.ctx.strokeStyle = '#003300';
+                this.ctx.stroke();
+            },
+        },
+        mounted: function(){
+          var canvas = document.getElementById('canvas');
+          this.ctx = canvas.getContext('2d');
+          this.width = canvas.width;   
+          this.height = canvas.height;
+        }
+    }); 
+
+Dentro del html, también podemos agregar un botón para llamar al método dibujarPelota
+
+.. code-block:: html
+
+    <div id="app">
+        <canvas id="canvas"></canvas>
+        <div>
+            <button @click="drawBall">Draw Ball</button>
+        </div>
+    </div>
+
+Al hacer clic en el botón Dibujar Pelota  se dibuja una bola centrada 25 px hacia abajo y 25 px a la derecha de la esquina superior izquierda del elemento ``canvas``
 
 .. raw:: html 
 

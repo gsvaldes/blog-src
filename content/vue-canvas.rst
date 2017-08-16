@@ -70,7 +70,7 @@ And update vue-canvas.js
     });
 
 
-According to the `VueJS documentation <https://vuejs.org/v2/api/#mounted>`_, the mounted method is called after the ``el``, in our case the div with ``id="app"``, has been replaced by the Vue instance ``vm.$el``.  We can't set ``this.ctx`` equal to ``canvas.getContext('2d')`` until after mount, because until then the canvas element does not yet exist on the page, as the section of our html file within the app div serves as a template for what VueJS will eventually render during the mount.  In the mounted method, we are assigning the width and height of the canvas element to the width and height that we created in the data attribute so that we can access them later.
+According to the `VueJS documentation <https://vuejs.org/v2/api/#mounted>`_, the ``mounted`` method is called after the ``el``, in our case the ``div`` with ``id="app"``, has been replaced by the Vue instance ``vm.$el``.  We can't set ``this.ctx`` equal to ``canvas.getContext('2d')`` until after mount, because until then the ``canvas`` element does not yet exist on the page, as the section of our html file within the app div serves as a template for what VueJS will eventually render during the mount.  In the ``mounted`` method, we are assigning the width and height of the canvas element to the width and height that we created in the data attribute so that we can access them later.
 
 Now that we can control the canvas context, ctx, from vue, let's add a method to draw a ball.
 
