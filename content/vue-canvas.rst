@@ -121,6 +121,70 @@ Within the html, we can also add a button to call the drawBall method
 
 Clicking on the Draw Ball button will draw a ball centered 25 px down and 25 px to the right of the upper left corner of the canvas element.
 
+Before we add code to move the ball, let's create a method to clear the ball from it's old location.
+
+.. code-block:: javascript
+
+        methods: {
+        ...
+
+        clearCanvas: function(){
+            this.ctx.clearRect(0,0, this.width, this.height);
+        },
+
+Now we can add our drawBall method.  Update the  ``data`` element
+
+.. code-block:: javascript
+
+    data: {
+        ctx: null,
+        width: 0,
+        height: 0,
+        x: 25,
+        y: 25,
+        xSpeed: .5,
+        ySpeed: 1.5,
+        ballTimer: null
+
+    },
+
+And add two new methods, the formula to move and change the direction of the ball comes from ``The Nature of Code``
+
+.. code-block:: javascript
+
+        moveBall: function(){
+            this.stopBall();  // stop the previous ballTimer if already running
+            vm = this;
+            this.ballTimer = setInterval(function(){
+                vm.x += vm.xSpeed;
+                vm.y += vm.ySpeed;
+                if ((vm.x > vm.width) || (vm.x < 0)) {
+                  vm.xSpeed = vm.xSpeed * -1;
+                }
+                if ((vm.y  > vm.height) || (vm.y  < 0)) {
+                  vm.ySpeed  = vm.ySpeed  * -1;
+                }
+                vm.clearCanvas();
+                vm.drawBall();
+            }, 10)
+        },
+        stopBall: function(){
+            clearInterval( this.ballTimer );
+        }
+
+Finally, add a couple more buttons in the ``app`` element of the html
+
+.. code-block:: html
+
+  <div id='app'>
+    <canvas id="canvas"></canvas>
+    <div>
+      <button @click="drawBall">Draw Ball</button>
+      <button @click="moveBall">Start Ball</button>
+      <button @click="stopBall">Stop Ball</button>
+      <button @click="clearCanvas">Clear</button>
+    </div>
+  </div>
 
 
 .. raw:: html 
