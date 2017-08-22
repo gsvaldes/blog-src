@@ -16,7 +16,7 @@ Recently, I've been enjoying  `The Nature of Code <http://natureofcode.com/book/
 
 One of the features of Vue that I like is that, while it allows for complex code organization and build processes, to get started, you can just drop in a link to the Vue CDN in the head of your ``html`` file, and connect your Vue instance to an html element via the ``el`` attribute.
 
-.. code-block:: html
+.. code-block:: none
 
     <!DOCTYPE html>
     <html lang="en">
@@ -44,7 +44,7 @@ Of course, this code doesn't do anything yet.  Let's make a bouncing ball.
 
 First, add a canvas element to the html file inside of the div controlled by VueJS.
 
-.. code-block:: html
+.. code-block:: none
 
     <div id="app">
         <canvas id="canvas"></canvas>
@@ -110,7 +110,7 @@ Add a methods object to our VueJS instance and a drawBall method within it, and 
 
 Within the html, we can also add a button to call the drawBall method
 
-.. code-block:: html
+.. code-block:: none
 
     <div id="app">
         <canvas id="canvas"></canvas>
@@ -174,7 +174,7 @@ And add two new methods, the formula to move and change the direction of the bal
 
 Finally, add a couple more buttons in the ``app`` element of the html
 
-.. code-block:: html
+.. code-block:: none
 
   <div id='app'>
     <canvas id="canvas"></canvas>

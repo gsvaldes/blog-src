@@ -15,7 +15,7 @@ Recientemente, he estado disfrutando de la lectura de `The Nature of Code <http:
 
 Una de las características de Vue que me gusta es que, aunque permite la compilación y organización de código complejo, para empezar, se puede utilizarlo colocando un enlance a la red de distribución de contenidos (CDN) en la cabeza de su archivo ``html`` y conectar su instancia Vue a un elemento de html a traves del atributo ``el``.
 
-.. code-block:: html
+.. code-block:: none
 
     <!DOCTYPE html>
     <html lang="es">
@@ -44,7 +44,7 @@ Por supuesto, este código no hace nada todavía.  Hagamos una bola rebotante.
 
 Primero, agregue un elemento canvas al archivo html dentro de la div controlada por VueJS.
 
-.. code-block:: html
+.. code-block:: none
 
     <div id="app">
         <canvas id="canvas"></canvas>
@@ -109,7 +109,7 @@ Agregue un objeto de ``methods`` a nuestra instancia VueJS y un método ``dibuja
 
 Dentro del html, también podemos agregar un botón para llamar al método dibujarPelota
 
-.. code-block:: html
+.. code-block:: none
 
     <div id="app">
         <canvas id="canvas"></canvas>

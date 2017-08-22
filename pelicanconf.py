@@ -22,6 +22,8 @@ AUTHOR_FEED_RSS = None
 PLUGIN_PATHS = ['../pelican-plugins']
 PLUGINS = ['pelican_javascript', 'i18n_subsites']
 
+PYGMENTS_RST_OPTIONS = {}
+
 RELATIVE_URLS = False  # overwritten to false in publishconf
 
 # see https://github.com/nicoddemus/nicoddemus.github.io/blob/master/_src/pelicanconf.py for example
